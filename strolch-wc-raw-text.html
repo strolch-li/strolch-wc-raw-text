@@ -1,0 +1,49 @@
+<!-- Components -->
+<link rel="import" href="../polymer/polymer.html">
+
+<link rel="import" href="../strolch-wc-styles/strolch-wc-app-style.html">
+
+<dom-module id="strolch-wc-raw-text">
+    <template>
+        <!-- Style -->
+        <style is="custom-style" include="strolch-wc-app-style">
+            :host {
+                display: inline-block;
+            }
+
+            p {
+                margin: 0;
+            }
+
+        </style>
+
+        <!-- Content -->
+        <p id="text"></p>
+
+    </template>
+
+    <script>
+        Polymer({
+            <!-- Settings -->
+            is: "strolch-wc-raw-text",
+
+            <!-- Behaviors -->
+            behaviors: [],
+
+            <!-- Properties -->
+            properties: {
+                text: {
+                    type: String,
+                    observer: "onTextChanged"
+                }
+            },
+
+            <!-- Functions -->
+            onTextChanged: function (newValue) {
+                if (newValue != null) {
+                    this.$.text.innerHTML = newValue;
+                }
+            }
+        });
+    </script>
+</dom-module>
